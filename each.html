@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery - Traversing</title>
+</head>
+
+<body>
+    <ul id="isimler">
+        <li>İlker Batuhan BURAL</li>
+        <li>Adem</li>
+        <li>Hatice</li>
+        <li>Ege</li>
+        <li>Ferhat</li>
+        <li>Tuba</li>
+        <li>İbrahim</li>
+    </ul>
+
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        // Put length of object at the end of the "li"
+        var ogeler = document.querySelectorAll("#isimler > li");
+
+        // for (var i = 0; i < ogeler.length; i++) {
+        //     var metin = ogeler[i].textContent;
+        //     ogeler[i].textContent += ": " + metin.length;
+        // }
+
+        // $("#isimler > li").each(function (index, element) {
+        //     // console.log(this.innerText);
+        //     var metin = $(this).text();
+        //     $(this).append(": " + metin.length);
+        // })
+
+
+        // // Saf js ile liste
+        var dizi = ["ali", "veli", "emek", "caner", "ilker"];
+
+        // let ul = document.createElement("ul");
+        // for (const ad of dizi) {
+        //     let li = document.createElement("li");
+        //     li.innerText = ad;
+        //     ul.appendChild(li);
+        // }
+        // let oncekiUl = document.getElementById("isimler");
+        // oncekiUl.parentNode.insertBefore(ul, oncekiUl);
+
+        // with jquery
+        var yeniUl = $("<ul/>");
+        $.each(dizi, function (index, ad) {
+            var li = $("<li/>").text(ad).appendTo(yeniUl);
+        });
+        yeniUl.insertBefore("#isimler");
+
+    </script>
+</body>
+
+</html>
