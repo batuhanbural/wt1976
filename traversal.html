@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery - Traversal </title>
+</head>
+
+<body>
+    <ul>
+        <li>Özgür</li>
+        <li>Ceren</li>
+        <li>Enes</li>
+        <li>Emek</li>
+        <li>Doğukan</li>
+        <li>Fuat</li>
+        <li>Kedi</li>
+        <li>Okan</li>
+        <li>Samet</li>
+        <li>Rümeysa</li>
+    </ul>
+    <textarea id="ozet" cols="30" rows="10"></textarea>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        var liler = $("li");
+        // "li"lerin ilki
+        yazdir("İlk kişi: " + liler.first().text());
+
+        // "li"lerin sonuncusu
+        yazdir("İlk kişi: " + liler.last().text());
+
+        // "li"lerin beşincisi
+        yazdir("İlk kişi: " + liler.eq(4).text());
+
+        // yedinci'den sonraki isimleri al
+        var adlar = liler.eq(6).nextAll().map(function () {
+            return this.innerText;
+        }).get().join(",");
+        yazdir("7. sonrası: " + adlar);
+        // yazdir("7. sonrası: " + liler.eq(6).nextAll().text())
+
+        // Fuat sonrası yazdır
+        var sonraki = liler.filter(function (index, li) {
+            return li.innerText == "Fuat";
+        }).next().text();
+        yazdir("Fuat sonrası: " + sonraki)
+
+        function yazdir(metin) {
+            var icerik = $("#ozet").val();
+            $("#ozet").val(icerik + metin + "\n");
+        }
+    </script>
+</body>
+
+</html>
