@@ -47,6 +47,10 @@
         }).next().text();
         yazdir("Fuat sonrası: " + sonraki)
 
+        // liste öğelerinin sonuncusunun kardeşlerini italik yap
+        liler.last().siblings().css("background-color", "tomato")
+
+
         function yazdir(metin) {
             var icerik = $("#ozet").val();
             $("#ozet").val(icerik + metin + "\n");
